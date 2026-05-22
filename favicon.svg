@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="发疯文学生成器">
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff4f8f"/>
+      <stop offset="0.52" stop-color="#ff6f7d"/>
+      <stop offset="1" stop-color="#ff9f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <circle cx="47" cy="17" r="7" fill="#fff7df" opacity="0.78"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="28" font-weight="900" fill="#fff">疯</text>
+</svg>

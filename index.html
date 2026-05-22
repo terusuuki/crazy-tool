@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="发疯文学生成器，一键随机生成搞笑、抽象、沙雕、阴阳怪气、打工人发疯和成年人崩溃风格中文文案，适合朋友圈、聊天、社交平台整活。">
+  <meta name="keywords" content="发疯文学,发疯文学生成器,沙雕文案,搞笑文案,抽象文案,阴阳怪气文案,打工人文案,成年人崩溃文案">
+  <meta name="author" content="发疯文学生成器">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="发疯文学生成器 - 一键生成搞笑抽象沙雕文案">
+  <meta property="og:description" content="随机生成年轻人爱用的发疯文学、打工人发疯、成年人崩溃、阴阳怪气和沙雕文学文案。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="发疯文学生成器">
+  <meta name="theme-color" content="#ff4f8f">
+  <link rel="canonical" href="https://crazy-tool.vercel.app/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <title>发疯文学生成器 - 一键生成搞笑抽象沙雕文案</title>
+  <style>
+    :root {
+      --bg-1: #fff4f6;
+      --bg-2: #fff7df;
+      --bg-3: #e9f7ff;
+      --ink: #221826;
+      --muted: #7c6978;
+      --line: rgba(116, 75, 96, 0.15);
+      --card: rgba(255, 255, 255, 0.58);
+      --card-strong: rgba(255, 255, 255, 0.72);
+      --pink: #ff4f8f;
+      --rose: #ff6f7d;
+      --orange: #ff9f45;
+      --blue: #6d8cff;
+      --green: #34c7a1;
+      --shadow: 0 28px 90px rgba(151, 84, 116, 0.23);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255, 79, 143, 0.34), transparent 28%),
+        radial-gradient(circle at 82% 10%, rgba(255, 159, 69, 0.32), transparent 25%),
+        radial-gradient(circle at 68% 82%, rgba(109, 140, 255, 0.24), transparent 30%),
+        linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+      letter-spacing: 0;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.30), transparent 42%),
+        radial-gradient(circle at 18% 78%, rgba(255, 255, 255, 0.42), transparent 24%);
+      animation: ambientMove 14s ease-in-out infinite alternate;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0 12px;
+      animation: floatIn 620ms ease both;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      display: grid;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: #fff;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--pink), var(--rose) 48%, var(--orange));
+      box-shadow: 0 10px 24px rgba(255, 79, 143, 0.28);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.60);
+    }
+
+    .ad-slot {
+      display: grid;
+      width: 100%;
+      min-height: 86px;
+      margin: 18px 0;
+      place-items: center;
+      color: rgba(124, 105, 120, 0.76);
+      font-size: 13px;
+      border: 1px dashed rgba(255, 79, 143, 0.25);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.34);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
+      backdrop-filter: blur(18px);
+    }
+
+    .ad-slot-top {
+      min-height: 96px;
+      margin-top: 10px;
+    }
+
+    .ad-slot-result {
+      min-height: 76px;
+      margin: 14px 0 0;
+      color: rgba(143, 58, 97, 0.74);
+      border-style: solid;
+      background: rgba(255, 255, 255, 0.36);
+    }
+
+    .ad-slot-bottom {
+      min-height: 104px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+      align-items: center;
+      gap: 30px;
+      padding: 28px 0 34px;
+    }
+
+    .intro {
+      min-width: 0;
+      animation: floatIn 720ms ease 80ms both;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 8px 10px;
+      color: #ab3a67;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 91, 159, 0.26);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 12px 32px rgba(255, 79, 143, 0.10);
+      backdrop-filter: blur(16px);
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(105deg, #221826 0%, #ff4f8f 38%, #ff9f45 68%, #6d8cff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .subtitle {
+      max-width: 590px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 530px;
+      margin: 26px 0 0;
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.56);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.48);
+      box-shadow: 0 14px 38px rgba(151, 84, 116, 0.10);
+      backdrop-filter: blur(18px);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-3px) rotate(-0.4deg);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .generator-card {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(28px) saturate(150%);
+      animation: floatIn 760ms ease 180ms both, cardBreath 5s ease-in-out infinite;
+    }
+
+    .generator-card::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.70), transparent 34%),
+        radial-gradient(circle at 92% 8%, rgba(255, 79, 143, 0.18), transparent 22%);
+    }
+
+    .generator-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .style-pill {
+      flex: 0 0 auto;
+      max-width: 46%;
+      padding: 8px 10px;
+      overflow: hidden;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--orange));
+      box-shadow: 0 10px 24px rgba(255, 79, 143, 0.20);
+    }
+
+    .copy-box {
+      position: relative;
+      min-height: 234px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.50)),
+        radial-gradient(circle at 12% 18%, rgba(255, 79, 143, 0.10), transparent 34%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.82),
+        0 18px 42px rgba(151, 84, 116, 0.10);
+      backdrop-filter: blur(20px);
+    }
+
+    .copy-box::after {
+      position: absolute;
+      right: 18px;
+      bottom: 10px;
+      content: "发疯中";
+      color: rgba(255, 79, 143, 0.10);
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .copy-text {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 800;
+      line-height: 1.42;
+      word-break: break-word;
+    }
+
+    .copy-text.pop {
+      animation: textPop 280ms ease both;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mood-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .mood-strip span {
+      padding: 7px 10px;
+      color: #8f3a61;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 79, 143, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.46);
+      box-shadow: 0 8px 18px rgba(151, 84, 116, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button {
+      appearance: none;
+      position: relative;
+      overflow: hidden;
+      min-height: 52px;
+      padding: 0 18px;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 800;
+      border: 0;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, filter 180ms ease;
+    }
+
+    button::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.42) 48%, transparent 100%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    button:hover::before {
+      transform: translateX(120%);
+    }
+
+    button:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
+    .primary-btn {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--rose) 48%, var(--orange));
+      box-shadow: 0 16px 32px rgba(255, 79, 143, 0.34);
+    }
+
+    .secondary-btn {
+      color: #7a3153;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.64);
+      box-shadow: 0 14px 28px rgba(151, 84, 116, 0.10);
+      backdrop-filter: blur(14px);
+    }
+
+    .share-btn {
+      color: #334066;
+      border: 1px solid rgba(109, 140, 255, 0.22);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 14px 28px rgba(109, 140, 255, 0.10);
+      backdrop-filter: blur(14px);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .share-btn:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.08);
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9;
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius);
+      background: rgba(34, 24, 38, 0.92);
+      box-shadow: 0 18px 48px rgba(151, 84, 116, 0.24);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section {
+      padding: 20px 0 36px;
+      content-visibility: auto;
+      contain-intrinsic-size: 520px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 24px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .feature-card {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 12px 30px rgba(151, 84, 116, 0.10);
+      backdrop-filter: blur(18px);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .feature-card:nth-child(2n) {
+      transform: rotate(0.35deg);
+    }
+
+    .feature-card:nth-child(2n + 1) {
+      transform: rotate(-0.25deg);
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.72);
+      transform: translateY(-4px) rotate(0deg);
+    }
+
+    .feature-card b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    footer {
+      padding: 12px 0 34px;
+      content-visibility: auto;
+      contain-intrinsic-size: 520px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .footer-card {
+      min-height: 154px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: 0 12px 30px rgba(151, 84, 116, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .footer-card h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .footer-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .footer-card a {
+      display: inline-flex;
+      margin-top: 12px;
+      color: #b43f6f;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .friend-links {
+      margin-top: 12px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.52);
+      box-shadow: 0 12px 30px rgba(151, 84, 116, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .friend-links h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .friend-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .friend-link-list a {
+      padding: 8px 10px;
+      color: #7a3153;
+      font-size: 14px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 79, 143, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .copyright {
+      margin: 18px 0 0;
+      color: rgba(124, 105, 120, 0.70);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @keyframes ambientMove {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0, -16px, 0) scale(1.03);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardBreath {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes textPop {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 24px, 680px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding-top: 18px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .feature-grid,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 20px, 460px);
+      }
+
+      .ad-slot {
+        min-height: 72px;
+        margin: 14px 0;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .generator-card {
+        padding: 16px;
+      }
+
+      .card-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .style-pill {
+        max-width: 100%;
+      }
+
+      .copy-box {
+        min-height: 228px;
+        padding: 18px;
+      }
+
+      .feature-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        min-height: 50px;
+      }
+
+      .toast {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="发疯文学生成器首页">
+        <span class="brand-mark">疯</span>
+        <span>发疯文学生成器</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="./index.html#generator">生成器</a>
+        <a href="./about.html">关于我们</a>
+        <a href="./privacy.html">隐私政策</a>
+        <a href="./contact.html">联系方式</a>
+      </nav>
+    </header>
+
+    <div class="ad-slot ad-slot-top" aria-label="顶部广告位" data-ad-position="top">
+      顶部 Google Adsense 广告位 · Top Banner
+    </div>
+
+    <main>
+      <section class="hero" id="generator">
+        <div class="intro">
+          <p class="kicker">一键整活 · 随机抽象 · 年轻人友好</p>
+          <h1><span class="gradient-text">发疯文学</span><br>随机生成器</h1>
+          <p class="subtitle">点击按钮，马上生成一条适合聊天、朋友圈、社交平台的搞笑文案。打工人、成年人、阴阳怪气和沙雕文学，全都给你安排。</p>
+          <div class="stats" aria-label="网站特点">
+            <div class="stat">
+              <strong>50+</strong>
+              <span>内置中文文案</span>
+            </div>
+            <div class="stat">
+              <strong>4类</strong>
+              <span>高频发疯风格</span>
+            </div>
+            <div class="stat">
+              <strong>0后端</strong>
+              <span>打开即用部署快</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="generator-card" aria-label="发疯文学生成器卡片">
+          <div class="card-head">
+            <h2 class="card-title">今日精神状态播报</h2>
+            <span class="style-pill" id="stylePill">沙雕文学</span>
+          </div>
+          <div class="copy-box">
+            <p class="copy-text" id="copyText">我不是在发疯，我是在用一种比较外向的方式重启人生。</p>
+          </div>
+          <div class="ad-slot ad-slot-result" aria-label="文案结果下方广告位" data-ad-position="result">
+            文案结果下方 Google Adsense 广告位
+          </div>
+          <div class="meta-row">
+            <span id="countText">文案库已加载 60 条</span>
+            <span id="hintText">点击“再疯一次”随机刷新</span>
+          </div>
+          <div class="mood-strip" aria-label="情绪标签">
+            <span>今天也要漂亮发疯</span>
+            <span>嘴硬但可爱</span>
+            <span>精神状态领先版本</span>
+          </div>
+          <div class="actions">
+            <button class="primary-btn" id="generateBtn" type="button">再疯一次</button>
+            <button class="secondary-btn" id="copyBtn" type="button">复制文案</button>
+            <button class="share-btn" id="shareBtn" type="button">分享网站</button>
+          </div>
+        </article>
+      </section>
+
+      <div class="ad-slot" aria-label="内容下广告位" data-ad-position="content">
+        内容下 Google Adsense 广告位 · In Content
+      </div>
+
+      <section class="section" aria-label="文案风格">
+        <h2 class="section-title">内置风格</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <b>打工人发疯</b>
+            <p>适合周一早八、开会、加班、绩效和需求反复横跳时使用。</p>
+          </div>
+          <div class="feature-card">
+            <b>成年人崩溃</b>
+            <p>把体面留给世界，把暂停键留给自己，轻轻一按就开始抽象。</p>
+          </div>
+          <div class="feature-card">
+            <b>阴阳怪气</b>
+            <p>语气很平静，杀伤力很稳定，适合含蓄表达复杂情绪。</p>
+          </div>
+          <div class="feature-card">
+            <b>沙雕文学</b>
+            <p>不讲逻辑，只讲快乐，主打一个脑洞起飞和精神松弛。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="ad-slot ad-slot-bottom" aria-label="底部广告位" data-ad-position="bottom">
+      底部 Google Adsense 广告位 · Footer Banner
+    </div>
+
+    <footer>
+      <div class="footer-grid">
+        <section class="footer-card" id="about">
+          <h2>关于我们</h2>
+          <p>发疯文学生成器是一个轻量中文整活工具，专注生成搞笑、抽象、沙雕和年轻化社交文案。无需登录，打开页面即可使用。</p>
+          <a href="./about.html">查看 About 页面</a>
+        </section>
+        <section class="footer-card" id="privacy">
+          <h2>隐私政策</h2>
+          <p>本站为纯前端页面，不需要注册账号，不主动收集个人信息。复制和生成操作均在浏览器本地完成。</p>
+          <a href="./privacy.html">查看 Privacy Policy</a>
+        </section>
+        <section class="footer-card" id="contact">
+          <h2>联系方式</h2>
+          <p>如需反馈建议、合作或投放咨询，可通过邮箱联系：hello@example.com。上线时请替换为你的真实联系方式。</p>
+          <a href="./contact.html">查看 Contact 页面</a>
+        </section>
+      </div>
+      <section class="friend-links" aria-label="友情链接">
+        <h2>友情链接</h2>
+        <div class="friend-link-list">
+          <a href="./index.html">发疯文案生成器</a>
+          <a href="./about.html">中文整活工具</a>
+          <a href="./privacy.html">隐私政策</a>
+          <a href="./contact.html">商务合作</a>
+        </div>
+      </section>
+      <p class="copyright">© 2026 发疯文学生成器 · 中文搞笑文案随机生成工具</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">已复制到剪贴板</div>
+
+  <script>
+    const copies = [
+      { style: "打工人发疯", text: "上班不是为了赚钱，是为了证明我在没有睡醒的情况下也能维持基本人类形态。" },
+      { style: "打工人发疯", text: "今天的我像一个正在加载的表格，所有单元格都写着：别问，问就是卡了。" },
+      { style: "打工人发疯", text: "老板说要提高效率，我已经很努力了，我连崩溃都是批量处理的。" },
+      { style: "打工人发疯", text: "我不是不想工作，我只是觉得我的灵魂和工位之间还需要一段冷静期。" },
+      { style: "打工人发疯", text: "需求改了三次以后，我的人生观也顺便更新到了不可用版本。" },
+      { style: "打工人发疯", text: "早会最大的意义，就是让我确认大家都还活着，并且都不太想活得这么具体。" },
+      { style: "打工人发疯", text: "我对工作没有意见，我只是对工作出现在我的人生里这件事有一点想法。" },
+      { style: "打工人发疯", text: "加班加到现在，我已经不需要灯了，我的怨气可以照亮整层办公室。" },
+      { style: "打工人发疯", text: "今天也在认真搬砖，只是砖还没搬完，我的精神先申请离职了。" },
+      { style: "打工人发疯", text: "绩效像天气预报，听起来很科学，落到我头上全是随机降雨。" },
+      { style: "打工人发疯", text: "我打开电脑不是为了工作，是为了和命运进行一场长达八小时的拉扯。" },
+      { style: "打工人发疯", text: "同事问我在忙什么，我说在忙着把情绪压缩成一个礼貌的微笑。" },
+      { style: "打工人发疯", text: "我的工牌不是身份识别，是我的临时精神拘留证。" },
+      { style: "打工人发疯", text: "每次提交周报，我都像在给疲惫的人生写一篇虚构文学。" },
+      { style: "打工人发疯", text: "别催了，人在工位，心在草原，脑子正在办理失踪证明。" },
+
+      { style: "成年人崩溃", text: "成年人的崩溃很安静，安静到只是把外卖备注写成：麻烦多放点活下去的勇气。" },
+      { style: "成年人崩溃", text: "我现在的精神状态：银行卡很清醒，身体很疲惫，灵魂在排队退票。" },
+      { style: "成年人崩溃", text: "生活把我磨平了棱角，然后发现我本来就是一滩。" },
+      { style: "成年人崩溃", text: "我没有emo，我只是临时和这个世界信号不好。" },
+      { style: "成年人崩溃", text: "成年以后才懂，原来周末不是休息，是给下一轮消耗充电的错觉。" },
+      { style: "成年人崩溃", text: "我每天都在自律和摆烂之间反复横跳，跳得像一台情绪洗衣机。" },
+      { style: "成年人崩溃", text: "人生建议：不要在晚上做决定，因为那时候连月亮都看起来像欠款通知。" },
+      { style: "成年人崩溃", text: "我最大的稳定输出，就是稳定地怀疑自己是不是输出过头了。" },
+      { style: "成年人崩溃", text: "今天的我没有坏掉，只是出厂设置里忘了安装热爱生活插件。" },
+      { style: "成年人崩溃", text: "成年人的礼貌就是：心里已经响起警报，嘴上还在说好的没问题。" },
+      { style: "成年人崩溃", text: "我不想逃避现实，我只是想和现实保持一个互不打扰的社交距离。" },
+      { style: "成年人崩溃", text: "精神内耗像后台软件，明明没打开，却一直在偷偷占内存。" },
+      { style: "成年人崩溃", text: "我的梦想很简单：睡醒以后不需要先给自己做心理建设。" },
+      { style: "成年人崩溃", text: "我以为我在长大，后来发现我只是在学会边碎边走。" },
+      { style: "成年人崩溃", text: "今天也没有被生活打倒，因为我已经提前躺平，角度非常专业。" },
+
+      { style: "阴阳怪气", text: "你说得都对，尤其是那种完全不考虑实际情况的自信，真的很有观赏价值。" },
+      { style: "阴阳怪气", text: "好的呢，我已经开始反思了，主要反思为什么我要听完这段话。" },
+      { style: "阴阳怪气", text: "你这个想法特别新颖，新颖到现实都忍不住往后退了两步。" },
+      { style: "阴阳怪气", text: "没关系，我这个人很好说话，只是我的沉默已经替我鼓掌了。" },
+      { style: "阴阳怪气", text: "原来还可以这样理解，知识的边界又被你温柔地推倒了。" },
+      { style: "阴阳怪气", text: "听君一席话，如听一席需要重新排版的话。" },
+      { style: "阴阳怪气", text: "你真的很会安排别人，仿佛我的人生是你购物车里的赠品。" },
+      { style: "阴阳怪气", text: "这件事你处理得很有想象力，尤其是想象别人会自动买单的部分。" },
+      { style: "阴阳怪气", text: "不是我不配合，是我的理智临时申请了旁听席。" },
+      { style: "阴阳怪气", text: "你放心，我没有生气，我只是被你的逻辑短暂地刷新了世界观。" },
+      { style: "阴阳怪气", text: "太厉害了，你一句话就让我明白了什么叫沟通成本的天花板。" },
+      { style: "阴阳怪气", text: "我懂，你不是双标，你只是给不同的人准备了不同版本的原则。" },
+      { style: "阴阳怪气", text: "谢谢你的建议，我会把它放进那个专门收藏离谱瞬间的抽屉里。" },
+      { style: "阴阳怪气", text: "你的表达非常完整，完整地绕开了重点。" },
+      { style: "阴阳怪气", text: "我不是敷衍，我是在给你的观点留足独自冷静的空间。" },
+
+      { style: "沙雕文学", text: "我不是在发疯，我是在用一种比较外向的方式重启人生。" },
+      { style: "沙雕文学", text: "今天的脑子像没拧紧的汽水，打开就是随机喷射。" },
+      { style: "沙雕文学", text: "本人目前状态良好，除了不想起床、不想说话、不想面对世界，其他都挺好。" },
+      { style: "沙雕文学", text: "如果快乐有形状，那我今天可能是一个被压扁的煎饼。" },
+      { style: "沙雕文学", text: "我的精神状态像共享单车，停在哪里全看命运有没有扫码成功。" },
+      { style: "沙雕文学", text: "别问我在想什么，我的大脑正在举办没有主持人的年会。" },
+      { style: "沙雕文学", text: "我宣布今天不做人了，先做一朵会叹气的云。" },
+      { style: "沙雕文学", text: "生活给了我一巴掌，我转头问它能不能开发票。" },
+      { style: "沙雕文学", text: "我现在不是累，是灵魂正在和身体进行跨服聊天。" },
+      { style: "沙雕文学", text: "做人哪有不疯的，硬撑罢了，撑不住就换个姿势疯。" },
+      { style: "沙雕文学", text: "今天的我像一杯奶茶，表面很甜，底下全是沉淀的破防珍珠。" },
+      { style: "沙雕文学", text: "我愿称今天为：人类低电量但嘴硬纪念日。" },
+      { style: "沙雕文学", text: "脑子说要努力，身体说你礼貌吗，灵魂说我先下线了。" },
+      { style: "沙雕文学", text: "我不是拖延，我是在等一个宇宙级的开工仪式感。" },
+      { style: "沙雕文学", text: "笑死，根本笑不死，因为明天还要继续上场表演正常。" }
+    ];
+
+    const copyText = document.getElementById("copyText");
+    const stylePill = document.getElementById("stylePill");
+    const countText = document.getElementById("countText");
+    const hintText = document.getElementById("hintText");
+    const generateBtn = document.getElementById("generateBtn");
+    const copyBtn = document.getElementById("copyBtn");
+    const shareBtn = document.getElementById("shareBtn");
+    const toast = document.getElementById("toast");
+    let lastIndex = 45;
+    let toastTimer = null;
+
+    countText.textContent = "文案库已加载 " + copies.length + " 条";
+
+    function pickCopy() {
+      let nextIndex = Math.floor(Math.random() * copies.length);
+      if (copies.length > 1) {
+        while (nextIndex === lastIndex) {
+          nextIndex = Math.floor(Math.random() * copies.length);
+        }
+      }
+      lastIndex = nextIndex;
+      return copies[nextIndex];
+    }
+
+    function generateCopy() {
+      const item = pickCopy();
+      copyText.textContent = item.text;
+      stylePill.textContent = item.style;
+      hintText.textContent = "刚刚生成：" + item.style;
+      copyText.classList.remove("pop");
+      void copyText.offsetWidth;
+      copyText.classList.add("pop");
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(function () {
+        toast.classList.remove("show");
+      }, 1800);
+    }
+
+    async function copyCurrentText() {
+      const text = copyText.textContent.trim();
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.top = "-999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+        }
+        showToast("已复制，拿去发疯");
+      } catch (error) {
+        showToast("复制失败，请手动选择文案");
+      }
+    }
+
+    async function shareSite() {
+      const shareData = {
+        title: "发疯文学生成器",
+        text: "一键生成搞笑、抽象、沙雕的发疯文学文案。",
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          showToast("分享面板已打开");
+        } else if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast("链接已复制，快去分享");
+        } else {
+          showToast("请复制浏览器地址分享");
+        }
+      } catch (error) {
+        showToast("分享已取消");
+      }
+    }
+
+    generateBtn.addEventListener("click", generateCopy);
+    copyBtn.addEventListener("click", copyCurrentText);
+    shareBtn.addEventListener("click", shareSite);
+  </script>
+</body>
+</html>
