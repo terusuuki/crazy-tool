@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="发疯文学生成器，一键随机生成搞笑、抽象、沙雕、阴阳怪气、打工人发疯和成年人崩溃风格中文文案，适合朋友圈、聊天、社交平台整活。">
-  <meta name="keywords" content="发疯文学,发疯文学生成器,沙雕文案,搞笑文案,抽象文案,阴阳怪气文案,打工人文案,成年人崩溃文案">
+  <meta name="description" content="发疯文学生成器，一键随机生成搞笑、抽象、沙雕、阴阳怪气、打工人发疯和成年人崩溃风格中文文案，适合朋友圈、小红书、微博、聊天和社交平台整活。">
+  <meta name="keywords" content="发疯文学,发疯文学生成器,沙雕文案,搞笑文案,抽象文案,阴阳怪气文案,打工人文案,成年人崩溃文案,小红书文案,朋友圈文案,整活文案,精神状态文案">
   <meta name="author" content="发疯文学生成器">
   <meta name="robots" content="index,follow">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <meta name="mobile-agent" content="format=html5;url=https://crazy-tool.vercel.app/">
+  <meta name="baidu-site-verification" content="请替换为你的百度站长平台验证码">
   <meta property="og:title" content="发疯文学生成器 - 一键生成搞笑抽象沙雕文案">
   <meta property="og:description" content="随机生成年轻人爱用的发疯文学、打工人发疯、成年人崩溃、阴阳怪气和沙雕文学文案。">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="发疯文学生成器">
+  <meta property="og:url" content="https://crazy-tool.vercel.app/">
+  <meta property="og:image" content="https://crazy-tool.vercel.app/favicon.svg">
+  <meta property="og:locale" content="zh_CN">
   <meta name="theme-color" content="#ff4f8f">
   <link rel="canonical" href="https://crazy-tool.vercel.app/">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -124,6 +132,22 @@
       color: var(--ink);
       background: rgba(255, 255, 255, 0.66);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.60);
+    }
+
+    .language-select {
+      min-height: 36px;
+      padding: 0 34px 0 12px;
+      color: #7a3153;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 79, 143, 0.18);
+      border-radius: 999px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 10px 24px rgba(151, 84, 116, 0.08);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
     }
 
     .ad-slot {
@@ -749,6 +773,11 @@
         <a href="./about.html">关于我们</a>
         <a href="./privacy.html">隐私政策</a>
         <a href="./contact.html">联系方式</a>
+        <select class="language-select" id="languageSelect" aria-label="选择语言">
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="en">English</option>
+        </select>
       </nav>
     </header>
 
@@ -764,7 +793,7 @@
           <p class="subtitle">点击按钮，马上生成一条适合聊天、朋友圈、社交平台的搞笑文案。打工人、成年人、阴阳怪气和沙雕文学，全都给你安排。</p>
           <div class="stats" aria-label="网站特点">
             <div class="stat">
-              <strong>50+</strong>
+              <strong>80+</strong>
               <span>内置中文文案</span>
             </div>
             <div class="stat">
@@ -790,7 +819,7 @@
             文案结果下方 Google Adsense 广告位
           </div>
           <div class="meta-row">
-            <span id="countText">文案库已加载 60 条</span>
+            <span id="countText">文案库已加载 80 条</span>
             <span id="hintText">点击“再疯一次”随机刷新</span>
           </div>
           <div class="mood-strip" aria-label="情绪标签">
@@ -934,9 +963,212 @@
       { style: "沙雕文学", text: "我愿称今天为：人类低电量但嘴硬纪念日。" },
       { style: "沙雕文学", text: "脑子说要努力，身体说你礼貌吗，灵魂说我先下线了。" },
       { style: "沙雕文学", text: "我不是拖延，我是在等一个宇宙级的开工仪式感。" },
-      { style: "沙雕文学", text: "笑死，根本笑不死，因为明天还要继续上场表演正常。" }
+      { style: "沙雕文学", text: "笑死，根本笑不死，因为明天还要继续上场表演正常。" },
+      { style: "打工人发疯", text: "我的电脑不是生产力工具，是我和甲方之间最后一层体面。" },
+      { style: "打工人发疯", text: "今天的工作量很懂事，懂事到完全没有考虑我的死活。" },
+      { style: "打工人发疯", text: "会议纪要写完了，纪要很清楚，我本人很模糊。" },
+      { style: "打工人发疯", text: "我不是在摸鱼，我是在给濒临崩溃的精神做人工呼吸。" },
+      { style: "打工人发疯", text: "需求像回旋镖，飞出去的是任务，飞回来的是我的周末。" },
+      { style: "成年人崩溃", text: "成年人的坚强就是：眼泪已经到门口了，还要先确认快递取件码。" },
+      { style: "成年人崩溃", text: "我把生活过成了连续剧，只是每一集都叫暂时先这样吧。" },
+      { style: "成年人崩溃", text: "情绪稳定是假的，主要是没有合适的场地原地爆炸。" },
+      { style: "成年人崩溃", text: "我每天都在和自己谈判，谈判结果通常是双方都不满意。" },
+      { style: "成年人崩溃", text: "存款很安静，压力很吵，人生像一间隔音失败的出租屋。" },
+      { style: "阴阳怪气", text: "你这个安排很周到，周到地绕过了所有实际执行的人。" },
+      { style: "阴阳怪气", text: "我完全理解你的意思，只是我的理解能力正在拒绝背锅。" },
+      { style: "阴阳怪气", text: "这个方案很大胆，大胆到我怀疑现实是不是被你静音了。" },
+      { style: "阴阳怪气", text: "没事，我很平静，平静得像一份已经放弃加载的网页。" },
+      { style: "阴阳怪气", text: "你说得很好，下次可以试试说点和问题有关的。" },
+      { style: "沙雕文学", text: "本人今日精神状态：外表像人，内心像一袋被摇晃过的薯片。" },
+      { style: "沙雕文学", text: "我现在的脑回路像迷宫，连出口都在问路。" },
+      { style: "沙雕文学", text: "如果人生是一场游戏，我大概是误点了困难模式还找不到设置。" },
+      { style: "沙雕文学", text: "我决定先不焦虑了，毕竟焦虑也没有给我发工资。" },
+      { style: "沙雕文学", text: "今天适合发光，不适合发力，所以我选择发疯。" }
     ];
 
+    const jaCopies = [
+      { style: "会社員の暴走", text: "働いているのではありません。眠気を抱えたまま人間の形を保つ実験をしています。" },
+      { style: "会社員の暴走", text: "今日の会議で失ったものは時間だけではありません。心のWi-Fiも切れました。" },
+      { style: "会社員の暴走", text: "締切は近づいてきますが、私の魂はすでに退勤しています。" },
+      { style: "会社員の暴走", text: "上司の一言で、私の人生設計が静かに再起動しました。" },
+      { style: "会社員の暴走", text: "仕事量が多すぎて、もはやタスクではなく天気です。避けられません。" },
+      { style: "大人の崩壊", text: "大人の崩壊は静かです。笑顔で大丈夫と言いながら、内側で店じまいしています。" },
+      { style: "大人の崩壊", text: "今日は壊れていません。ただ生活との通信状態が少し悪いだけです。" },
+      { style: "大人の崩壊", text: "週末は休息ではなく、次の消耗に向けた短い充電の幻です。" },
+      { style: "大人の崩壊", text: "貯金は静かで、プレッシャーだけがとてもよくしゃべります。" },
+      { style: "大人の崩壊", text: "ちゃんとしているふりが上手くなっただけで、心はまだ会議室で迷子です。" },
+      { style: "皮肉文学", text: "なるほど、とても斬新ですね。現実が二歩ほど後ずさりしました。" },
+      { style: "皮肉文学", text: "ご提案ありがとうございます。丁寧に受け取り、そっと現実の横に置きます。" },
+      { style: "皮肉文学", text: "あなたの自信は本当に美しいです。実行する人のことを考えなければ。" },
+      { style: "皮肉文学", text: "大丈夫です。怒っていません。ただ理性が一時的に席を外しました。" },
+      { style: "皮肉文学", text: "話はよく分かりました。問題の核心だけがきれいに避けられています。" },
+      { style: "おバカ文学", text: "私は壊れていません。少し表現力豊かに人生を再起動しているだけです。" },
+      { style: "おバカ文学", text: "今日の脳みそは炭酸水です。開けた瞬間にどこかへ飛び散ります。" },
+      { style: "おバカ文学", text: "人生がゲームなら、私は設定画面を見失ったままハードモードを走っています。" },
+      { style: "おバカ文学", text: "今日は頑張る日ではなく、かわいく混乱する日です。" },
+      { style: "おバカ文学", text: "心は雲、体は椅子、脳は休憩中です。" }
+    ];
+
+    const enCopies = [
+      { style: "Workday Spiral", text: "I am not working. I am proving that a person can look functional while running on three percent battery." },
+      { style: "Workday Spiral", text: "My laptop is not a productivity tool. It is the final layer of dignity between me and the deadline." },
+      { style: "Workday Spiral", text: "The meeting ended, but a small part of my soul is still asking for permission to leave." },
+      { style: "Workday Spiral", text: "I do not hate work. I simply have questions about why it keeps appearing in my life." },
+      { style: "Workday Spiral", text: "My tasks are no longer a list. They are weather. I just stand here and get rained on." },
+      { style: "Adult Breakdown", text: "Adult breakdowns are quiet. You say no worries while your inner dashboard flashes every warning light." },
+      { style: "Adult Breakdown", text: "I am not dramatic. My browser tabs, bank account, and nervous system are just holding a conference." },
+      { style: "Adult Breakdown", text: "The weekend is not rest. It is a tiny charging cable for a very tired life." },
+      { style: "Adult Breakdown", text: "My dreams are simple now: wake up without needing a pep talk from myself." },
+      { style: "Adult Breakdown", text: "I am not avoiding reality. I am maintaining a polite distance for public safety." },
+      { style: "Soft Sarcasm", text: "That is a bold plan. Especially the part where reality quietly leaves the room." },
+      { style: "Soft Sarcasm", text: "Thank you for the suggestion. I will place it gently in the drawer labeled interesting moments." },
+      { style: "Soft Sarcasm", text: "You explained that beautifully. The point was untouched, but the confidence was impressive." },
+      { style: "Soft Sarcasm", text: "I am calm. My logic has simply requested a short personal leave." },
+      { style: "Soft Sarcasm", text: "I understand completely. My understanding, however, refuses to carry the blame." },
+      { style: "Chaotic Humor", text: "I am not losing it. I am rebooting my personality in a more theatrical format." },
+      { style: "Chaotic Humor", text: "Today my brain is a shaken soda. Please open with caution." },
+      { style: "Chaotic Humor", text: "If life is a game, I clicked hard mode and immediately lost the settings menu." },
+      { style: "Chaotic Humor", text: "I have decided not to panic today. Panic is not on payroll." },
+      { style: "Chaotic Humor", text: "My current status: body online, soul buffering, brain in airplane mode." }
+    ];
+
+    const translations = {
+      zh: {
+        lang: "zh-CN",
+        title: "发疯文学生成器 - 一键生成搞笑抽象沙雕文案",
+        description: "发疯文学生成器，一键随机生成搞笑、抽象、沙雕、阴阳怪气、打工人发疯和成年人崩溃风格中文文案，适合朋友圈、小红书、微博、聊天和社交平台整活。",
+        keywords: "发疯文学,发疯文学生成器,沙雕文案,搞笑文案,抽象文案,阴阳怪气文案,打工人文案,成年人崩溃文案,小红书文案,朋友圈文案,整活文案,精神状态文案",
+        brand: "发疯文学生成器",
+        nav: ["生成器", "关于我们", "隐私政策", "联系方式"],
+        ads: ["顶部 Google Adsense 广告位 · Top Banner", "文案结果下方 Google Adsense 广告位", "内容下 Google Adsense 广告位 · In Content", "底部 Google Adsense 广告位 · Footer Banner"],
+        kicker: "一键整活 · 随机抽象 · 年轻人友好",
+        hero: "<span class=\"gradient-text\">发疯文学</span><br>随机生成器",
+        subtitle: "点击按钮，马上生成一条适合聊天、朋友圈、社交平台的搞笑文案。打工人、成年人、阴阳怪气和沙雕文学，全都给你安排。",
+        stats: ["内置中文文案", "高频发疯风格", "打开即用部署快"],
+        cardTitle: "今日精神状态播报",
+        count: function (n) { return "文案库已加载 " + n + " 条"; },
+        hint: "点击“再疯一次”随机刷新",
+        generated: function (style) { return "刚刚生成：" + style; },
+        moods: ["今天也要漂亮发疯", "嘴硬但可爱", "精神状态领先版本"],
+        buttons: ["再疯一次", "复制文案", "分享网站"],
+        sectionTitle: "内置风格",
+        features: [
+          ["打工人发疯", "适合周一早八、开会、加班、绩效和需求反复横跳时使用。"],
+          ["成年人崩溃", "把体面留给世界，把暂停键留给自己，轻轻一按就开始抽象。"],
+          ["阴阳怪气", "语气很平静，杀伤力很稳定，适合含蓄表达复杂情绪。"],
+          ["沙雕文学", "不讲逻辑，只讲快乐，主打一个脑洞起飞和精神松弛。"]
+        ],
+        footer: [
+          ["关于我们", "发疯文学生成器是一个轻量中文整活工具，专注生成搞笑、抽象、沙雕和年轻化社交文案。无需登录，打开页面即可使用。", "查看 About 页面"],
+          ["隐私政策", "本站为纯前端页面，不需要注册账号，不主动收集个人信息。复制和生成操作均在浏览器本地完成。", "查看 Privacy Policy"],
+          ["联系方式", "如需反馈建议、合作或投放咨询，可通过邮箱联系：hello@example.com。上线时请替换为你的真实联系方式。", "查看 Contact 页面"]
+        ],
+        linksTitle: "友情链接",
+        links: ["发疯文案生成器", "中文整活工具", "隐私政策", "商务合作"],
+        copyright: "© 2026 发疯文学生成器 · 中文搞笑文案随机生成工具",
+        toastReady: "已复制到剪贴板",
+        copyOk: "已复制，拿去发疯",
+        copyFail: "复制失败，请手动选择文案",
+        shareTitle: "发疯文学生成器",
+        shareText: "一键生成搞笑、抽象、沙雕的发疯文学文案。",
+        shareOpen: "分享面板已打开",
+        shareCopied: "链接已复制，快去分享",
+        shareManual: "请复制浏览器地址分享",
+        shareCancel: "分享已取消"
+      },
+      ja: {
+        lang: "ja",
+        title: "狂気文学ジェネレーター - 面白くてシュールな文章を自動生成",
+        description: "狂気文学ジェネレーターは、仕事疲れ、大人の限界、皮肉、シュールでおもしろい投稿文をランダム生成する日本語対応ツールです。",
+        keywords: "狂気文学,文章生成,面白い文章,シュール文章,皮肉文,仕事疲れ,投稿文,コピー生成",
+        brand: "狂気文学ジェネレーター",
+        nav: ["生成ツール", "私たちについて", "プライバシー", "お問い合わせ"],
+        ads: ["上部 Google Adsense 広告枠 · Top Banner", "生成結果下 Google Adsense 広告枠", "本文下 Google Adsense 広告枠 · In Content", "下部 Google Adsense 広告枠 · Footer Banner"],
+        kicker: "ワンクリック · ランダム混乱 · SNS向け",
+        hero: "<span class=\"gradient-text\">狂気文学</span><br>ジェネレーター",
+        subtitle: "ボタンを押すだけで、チャットやSNSに使えるおもしろくてシュールな文章を生成します。仕事疲れ、大人の限界、皮肉、おバカ文学まで対応。",
+        stats: ["内蔵日本語コピー", "人気の感情スタイル", "開くだけですぐ使える"],
+        cardTitle: "今日の精神状態レポート",
+        count: function (n) { return "コピーライブラリ " + n + " 件を読み込み済み"; },
+        hint: "「もう一度生成」を押して更新",
+        generated: function (style) { return "生成しました：" + style; },
+        moods: ["今日もかわいく混乱", "強がりだけど愛しい", "精神状態は最新版"],
+        buttons: ["もう一度生成", "コピーする", "サイトを共有"],
+        sectionTitle: "内蔵スタイル",
+        features: [
+          ["会社員の暴走", "月曜の朝、会議、残業、終わらない修正にぴったり。"],
+          ["大人の崩壊", "静かに限界を迎える大人の気持ちを、少しユーモラスに表現。"],
+          ["皮肉文学", "穏やかな口調で、しっかり刺さる一言を生成。"],
+          ["おバカ文学", "理屈より勢い。ゆるく笑えるシュールな文章。"]
+        ],
+        footer: [
+          ["私たちについて", "狂気文学ジェネレーターは、SNS向けのおもしろい文章をすばやく作れる軽量ツールです。登録不要でそのまま使えます。", "About ページを見る"],
+          ["プライバシー", "このサイトは静的なフロントエンドページです。登録は不要で、コピーや生成は主にブラウザ内で完結します。", "Privacy Policy を見る"],
+          ["お問い合わせ", "ご意見、提携、広告については hello@example.com までご連絡ください。公開時は実際の連絡先に置き換えてください。", "Contact ページを見る"]
+        ],
+        linksTitle: "関連リンク",
+        links: ["文章生成ツール", "SNS向けコピー", "プライバシー", "ビジネス連絡"],
+        copyright: "© 2026 狂気文学ジェネレーター · おもしろ文章生成ツール",
+        toastReady: "クリップボードにコピーしました",
+        copyOk: "コピーしました",
+        copyFail: "コピーできませんでした。手動で選択してください",
+        shareTitle: "狂気文学ジェネレーター",
+        shareText: "面白くてシュールな投稿文をワンクリックで生成。",
+        shareOpen: "共有画面を開きました",
+        shareCopied: "リンクをコピーしました",
+        shareManual: "ブラウザのURLをコピーして共有してください",
+        shareCancel: "共有をキャンセルしました"
+      },
+      en: {
+        lang: "en",
+        title: "Chaos Text Generator - Funny, Absurd and Social Copy",
+        description: "Chaos Text Generator creates funny, absurd, sarcastic and workday meltdown style copy for chats, social posts and quick creative sharing.",
+        keywords: "chaos text generator,funny copy generator,absurd text,sarcastic copy,workday meltdown,social media captions",
+        brand: "Chaos Text Generator",
+        nav: ["Generator", "About", "Privacy", "Contact"],
+        ads: ["Top Google Adsense Ad Slot · Top Banner", "Google Adsense Ad Slot Below Result", "In-content Google Adsense Ad Slot", "Footer Google Adsense Ad Slot · Footer Banner"],
+        kicker: "One click · Random chaos · Social-ready",
+        hero: "<span class=\"gradient-text\">Chaos Text</span><br>Generator",
+        subtitle: "Click the button to generate funny, absurd and highly shareable copy for chats, social posts and daily emotional weather reports.",
+        stats: ["Built-in English lines", "Popular chaos styles", "Static and fast to deploy"],
+        cardTitle: "Today’s Mental Status",
+        count: function (n) { return n + " lines loaded"; },
+        hint: "Click “Go Chaotic Again” to refresh",
+        generated: function (style) { return "Generated: " + style; },
+        moods: ["Pretty chaos only", "Soft but unhinged", "Mental status updated"],
+        buttons: ["Go Chaotic Again", "Copy Text", "Share Site"],
+        sectionTitle: "Built-in Styles",
+        features: [
+          ["Workday Spiral", "For meetings, deadlines, Monday mornings and tasks that keep multiplying."],
+          ["Adult Breakdown", "Polished on the outside, emotionally buffering on the inside."],
+          ["Soft Sarcasm", "Calm wording with surprisingly accurate emotional damage."],
+          ["Chaotic Humor", "No logic required, just playful internet energy."]
+        ],
+        footer: [
+          ["About", "Chaos Text Generator is a lightweight static tool for creating funny, absurd and social-ready copy. No login required.", "View About Page"],
+          ["Privacy Policy", "This is a front-end static website. Generation and copy actions happen mainly in your browser.", "View Privacy Policy"],
+          ["Contact", "For feedback, partnerships or advertising, contact hello@example.com. Replace it with your real email before launch.", "View Contact Page"]
+        ],
+        linksTitle: "Friendly Links",
+        links: ["Chaos Copy Generator", "Social Copy Tool", "Privacy Policy", "Business Contact"],
+        copyright: "© 2026 Chaos Text Generator · Funny social copy tool",
+        toastReady: "Copied to clipboard",
+        copyOk: "Copied",
+        copyFail: "Copy failed. Please select the text manually",
+        shareTitle: "Chaos Text Generator",
+        shareText: "Generate funny, absurd and social-ready copy in one click.",
+        shareOpen: "Share sheet opened",
+        shareCopied: "Link copied",
+        shareManual: "Please copy the browser address to share",
+        shareCancel: "Share canceled"
+      }
+    };
+
+    const copyPools = { zh: copies, ja: jaCopies, en: enCopies };
+    let currentLanguage = "zh";
+    let currentCopies = copyPools.zh;
+
+    const languageSelect = document.getElementById("languageSelect");
     const copyText = document.getElementById("copyText");
     const stylePill = document.getElementById("stylePill");
     const countText = document.getElementById("countText");
@@ -948,24 +1180,135 @@
     let lastIndex = 45;
     let toastTimer = null;
 
-    countText.textContent = "文案库已加载 " + copies.length + " 条";
+    function setMeta(name, value) {
+      const meta = document.querySelector('meta[name="' + name + '"]');
+      if (meta) {
+        meta.setAttribute("content", value);
+      }
+    }
+
+    function setOg(property, value) {
+      const meta = document.querySelector('meta[property="' + property + '"]');
+      if (meta) {
+        meta.setAttribute("content", value);
+      }
+    }
+
+    function setText(selector, value) {
+      const element = document.querySelector(selector);
+      if (element) {
+        element.textContent = value;
+      }
+    }
+
+    function applyLanguage(language, shouldGenerate) {
+      const t = translations[language] || translations.zh;
+      currentLanguage = language;
+      currentCopies = copyPools[language] || copyPools.zh;
+      lastIndex = -1;
+
+      document.documentElement.lang = t.lang;
+      document.title = t.title;
+      setMeta("description", t.description);
+      setMeta("keywords", t.keywords);
+      setOg("og:title", t.title);
+      setOg("og:description", t.description);
+
+      setText(".brand span:last-child", t.brand);
+      document.querySelectorAll(".nav a").forEach(function (item, index) {
+        item.textContent = t.nav[index] || item.textContent;
+      });
+      document.querySelectorAll(".ad-slot").forEach(function (item, index) {
+        item.textContent = t.ads[index] || item.textContent;
+      });
+      setText(".kicker", t.kicker);
+      const heroTitle = document.querySelector("h1");
+      if (heroTitle) {
+        heroTitle.innerHTML = t.hero;
+      }
+      setText(".subtitle", t.subtitle);
+      document.querySelectorAll(".stat span").forEach(function (item, index) {
+        item.textContent = t.stats[index] || item.textContent;
+      });
+      const firstStat = document.querySelector(".stat strong");
+      if (firstStat) {
+        firstStat.textContent = currentCopies.length + "+";
+      }
+      setText(".card-title", t.cardTitle);
+      countText.textContent = t.count(currentCopies.length);
+      hintText.textContent = t.hint;
+      document.querySelectorAll(".mood-strip span").forEach(function (item, index) {
+        item.textContent = t.moods[index] || item.textContent;
+      });
+      generateBtn.textContent = t.buttons[0];
+      copyBtn.textContent = t.buttons[1];
+      shareBtn.textContent = t.buttons[2];
+      setText(".section-title", t.sectionTitle);
+      document.querySelectorAll(".feature-card").forEach(function (card, index) {
+        const feature = t.features[index];
+        if (!feature) {
+          return;
+        }
+        const title = card.querySelector("b");
+        const desc = card.querySelector("p");
+        if (title) {
+          title.textContent = feature[0];
+        }
+        if (desc) {
+          desc.textContent = feature[1];
+        }
+      });
+      document.querySelectorAll(".footer-card").forEach(function (card, index) {
+        const footer = t.footer[index];
+        if (!footer) {
+          return;
+        }
+        const title = card.querySelector("h2");
+        const desc = card.querySelector("p");
+        const link = card.querySelector("a");
+        if (title) {
+          title.textContent = footer[0];
+        }
+        if (desc) {
+          desc.textContent = footer[1];
+        }
+        if (link) {
+          link.textContent = footer[2];
+        }
+      });
+      setText(".friend-links h2", t.linksTitle);
+      document.querySelectorAll(".friend-link-list a").forEach(function (item, index) {
+        item.textContent = t.links[index] || item.textContent;
+      });
+      setText(".copyright", t.copyright);
+      toast.textContent = t.toastReady;
+
+      if (shouldGenerate) {
+        generateCopy();
+      } else {
+        const first = currentCopies[0];
+        copyText.textContent = first.text;
+        stylePill.textContent = first.style;
+      }
+    }
 
     function pickCopy() {
-      let nextIndex = Math.floor(Math.random() * copies.length);
-      if (copies.length > 1) {
+      let nextIndex = Math.floor(Math.random() * currentCopies.length);
+      if (currentCopies.length > 1) {
         while (nextIndex === lastIndex) {
-          nextIndex = Math.floor(Math.random() * copies.length);
+          nextIndex = Math.floor(Math.random() * currentCopies.length);
         }
       }
       lastIndex = nextIndex;
-      return copies[nextIndex];
+      return currentCopies[nextIndex];
     }
 
     function generateCopy() {
+      const t = translations[currentLanguage];
       const item = pickCopy();
       copyText.textContent = item.text;
       stylePill.textContent = item.style;
-      hintText.textContent = "刚刚生成：" + item.style;
+      hintText.textContent = t.generated(item.style);
       copyText.classList.remove("pop");
       void copyText.offsetWidth;
       copyText.classList.add("pop");
@@ -996,36 +1339,44 @@
           document.execCommand("copy");
           document.body.removeChild(textarea);
         }
-        showToast("已复制，拿去发疯");
+        showToast(translations[currentLanguage].copyOk);
       } catch (error) {
-        showToast("复制失败，请手动选择文案");
+        showToast(translations[currentLanguage].copyFail);
       }
     }
 
     async function shareSite() {
+      const t = translations[currentLanguage];
       const shareData = {
-        title: "发疯文学生成器",
-        text: "一键生成搞笑、抽象、沙雕的发疯文学文案。",
+        title: t.shareTitle,
+        text: t.shareText,
         url: window.location.href
       };
       try {
         if (navigator.share) {
           await navigator.share(shareData);
-          showToast("分享面板已打开");
+          showToast(t.shareOpen);
         } else if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(window.location.href);
-          showToast("链接已复制，快去分享");
+          showToast(t.shareCopied);
         } else {
-          showToast("请复制浏览器地址分享");
+          showToast(t.shareManual);
         }
       } catch (error) {
-        showToast("分享已取消");
+        showToast(t.shareCancel);
       }
     }
 
+    languageSelect.addEventListener("change", function (event) {
+      window.localStorage.setItem("crazyToolLanguage", event.target.value);
+      applyLanguage(event.target.value, true);
+    });
     generateBtn.addEventListener("click", generateCopy);
     copyBtn.addEventListener("click", copyCurrentText);
     shareBtn.addEventListener("click", shareSite);
+    const savedLanguage = window.localStorage.getItem("crazyToolLanguage") || "zh";
+    languageSelect.value = translations[savedLanguage] ? savedLanguage : "zh";
+    applyLanguage(languageSelect.value, false);
   </script>
 </body>
 </html>
