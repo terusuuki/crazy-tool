@@ -4,4 +4,4 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
-Sitemap: https://crazy-tool.vercel.app/sitemap.xml
+Sitemap: https://crazy-tool-nine.vercel.app/sitemap.xml
